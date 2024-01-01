@@ -22,9 +22,9 @@ fi
 
 #-----------------------------------------------------------------------------
 
-is_command_available_or_error quartus_sh " from Intel FPGA Quartus Prime package"
+is_command_available_or_error quartus_sh.exe " from Intel FPGA Quartus Prime package"
 
-if ! quartus_sh --no_banner --flow compile top 2>&1 | tee -a "$log"
+if ! quartus_sh.exe --no_banner --flow compile top 2>&1 | tee -a "$log"
 then
     grep -i -A 5 error "$log" 2>&1
     error "synthesis failed"

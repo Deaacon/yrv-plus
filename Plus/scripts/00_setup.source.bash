@@ -46,7 +46,7 @@ is_command_available ()
 is_command_available_or_error ()
 {
     is_command_available $1 ||  \
-        error "program $1$2 is not in the path or cannot be run$3"
+        error "program $1$2 is not in the path or cannot be run"
 }
 
 #-----------------------------------------------------------------------------
@@ -118,7 +118,7 @@ then
     if ! [ -d "$INTELFPGA_INSTALL_PARENT_DIR/$INTELFPGA_INSTALL_DIR" ]
     then
         INTELFPGA_INSTALL_PARENT_DIR_FIRST="$INTELFPGA_INSTALL_PARENT_DIR"
-        INTELFPGA_INSTALL_PARENT_DIR=/opt
+        INTELFPGA_INSTALL_PARENT_DIR=/mnt/d/ProgramData
     fi
 
     QUESTA_BIN_DIR=bin

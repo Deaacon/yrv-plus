@@ -3,7 +3,7 @@ scripts_dir=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 [ -z "${setup_source_bash_already_run-}" ] && \
 . "$scripts_dir/00_setup.source.bash"
 
-is_command_available_or_error quartus_pgm " from Intel FPGA Quartus Prime package"
+is_command_available_or_error quartus_pgm.exe " from Intel FPGA Quartus Prime package"
 
 if [ "$OSTYPE" = "linux-gnu" ]
 then
@@ -19,7 +19,7 @@ then
     killall jtagd 2>/dev/null || true
 fi
 
-quartus_pgm -l &> cable_list
+quartus_pgm.exe -l &> cable_list
 
 CABLE_NAME_1=$(set +o pipefail; grep "1) " cable_list | sed 's/.*1) //')
 CABLE_NAME_2=$(set +o pipefail; grep "2) " cable_list | sed 's/.*2) //')
@@ -32,7 +32,7 @@ then
     fi
 
     info "using cable $CABLE_NAME_1"
-    quartus_pgm --no_banner -c "$CABLE_NAME_1" --mode=jtag -o "P;top.sof"
+    quartus_pgm.exe --no_banner -c "$CABLE_NAME_1" --mode=jtag -o "P;top.sof"
 else
     error "cannot detect a USB-Blaster cable connected"
 fi

@@ -9,6 +9,6 @@ else
             "https://github.com/TheThirdOne/rars/releases/download/$rars_version/$rars_jar"
     fi
 
-    is_command_available_or_error_and_install java default-jre
-    java -jar "$rars_path" &
+    is_command_available_or_error_and_install java.exe default-jre
+    java.exe -jar "$rars_path"
 fi

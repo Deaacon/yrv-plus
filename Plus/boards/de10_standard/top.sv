@@ -8,7 +8,7 @@ module top
   input         CLOCK_50,
 
   input  [ 9:0] SW,
-  output [ 9:0] LED,
+  output [ 9:0] LEDR,
 
   output [ 7:0] HEX0,
   output [ 7:0] HEX1,
@@ -101,7 +101,7 @@ module top
   // Pin assignments
 
   // The original board had port3_reg [13:8], debug_mode, wfi_state
-  assign LED = { port3_reg [15:8], debug_mode, wfi_state };
+  assign LEDR = { port3_reg [15:8], debug_mode, wfi_state };
 
   //--------------------------------------------------------------------------
 

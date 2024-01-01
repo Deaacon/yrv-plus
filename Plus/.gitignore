@@ -1,2 +1,4 @@
 external/rars*jar
 project/
+run/
+log.txt
